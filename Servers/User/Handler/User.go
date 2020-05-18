@@ -8,11 +8,11 @@ import (
 	"micro.demo/Servers/User/Servers"
 )
 
-type UserHandler struct {
+type User struct {
 }
 
 // 用户注册
-func (u *UserHandler) UserRegister(ctx context.Context, req *pb.UserRegisterRequest, res *pb.UserRegisterResponse) error {
+func (u *User) UserRegister(ctx context.Context, req *pb.UserRegisterRequest, res *pb.UserRegisterResponse) error {
 	// 开始注册
 	if err := Servers.Register(
 		req.GetUserName(),
@@ -32,7 +32,7 @@ func (u *UserHandler) UserRegister(ctx context.Context, req *pb.UserRegisterRequ
 }
 
 // 用户登录
-func (u *UserHandler) UserLogin(ctx context.Context, req *pb.UserLoginRequest, res *pb.UserLoginResponse) error {
+func (u *User) UserLogin(ctx context.Context, req *pb.UserLoginRequest, res *pb.UserLoginResponse) error {
 	token, err := Servers.Login(req.GetEmail(), req.GetPassword())
 	if err != nil {
 		return err
@@ -48,7 +48,7 @@ func (u *UserHandler) UserLogin(ctx context.Context, req *pb.UserLoginRequest, r
 }
 
 // 用户更新
-func (u *UserHandler) UserUpdateProfile(ctx context.Context, req *pb.UserUpdateProfileRequest, res *pb.UserUpdateProfileResponse) error {
+func (u *User) UserUpdateProfile(ctx context.Context, req *pb.UserUpdateProfileRequest, res *pb.UserUpdateProfileResponse) error {
 	user := Models.User{
 		UserName: req.GetUserName(),
 		Password: req.GetPassword(),
@@ -69,7 +69,7 @@ func (u *UserHandler) UserUpdateProfile(ctx context.Context, req *pb.UserUpdateP
 }
 
 // 用户查询信息
-func (u *UserHandler) UserFind(ctx context.Context, req *pb.UserFindByWhereRequest, res *pb.UserFindByWhereResponse) error {
+func (u *User) UserFind(ctx context.Context, req *pb.UserFindByWhereRequest, res *pb.UserFindByWhereResponse) error {
 	var (
 		err  error
 		data Models.User
@@ -105,7 +105,7 @@ func (u *UserHandler) UserFind(ctx context.Context, req *pb.UserFindByWhereReque
 }
 
 // 用户查询列表
-func (u *UserHandler) UserFindIds(ctx context.Context, in *pb.UserFindByIdsRequest, out *pb.UserFindByIdsResponse) (err error) {
+func (u *User) UserFindIds(ctx context.Context, in *pb.UserFindByIdsRequest, out *pb.UserFindByIdsResponse) (err error) {
 	users, err := Servers.SelectByIds(in.GetIds())
 	if err != nil {
 		out.Code = 1

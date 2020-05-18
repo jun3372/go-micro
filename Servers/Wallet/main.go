@@ -49,7 +49,7 @@ func main() {
 			/************************************/
 			_ = pb.RegisterUserServiceHandler(
 				service.Server(),
-				new(Handler.UserHandler),
+				new(Handler.User),
 				server.InternalHandler(true),
 			)
 

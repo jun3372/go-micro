@@ -23,9 +23,11 @@ func Register(userName, password, phone, email, avatar string) error {
 		Avatar:   avatar,
 	}
 
-	if user.Avatar == "" {
-		user.Avatar = getDefaultAvatar()
+	// 验证参数
+	if err := tool.Validate(user); err != nil {
+		return err
 	}
+
 	err := orm.DB().Create(&user).Error
 	if err != nil {
 		return err
@@ -73,6 +75,11 @@ func Update(userId int64, token string, user Models.User) (err error) {
 		return
 	}
 
+	// 验证参数
+	if err := tool.Validate(user); err != nil {
+		return err
+	}
+
 	if userId > 0 {
 		where.UserId = userId
 		data, err = Find(where)
@@ -84,11 +91,6 @@ func Update(userId int64, token string, user Models.User) (err error) {
 		err = errors.New("查询用户失败: " + err.Error())
 		return
 	}
-
-	if user.Avatar == "" {
-		user.Avatar = getDefaultAvatar()
-	}
-
 	err = orm.DB().Model(&data).Update(&user).Error
 	if err != nil {
 		return
@@ -143,6 +145,7 @@ func FindByToken(token string) (user Models.User, err error) {
 	}
 
 	user, err = Find(where)
+	user.SetAvatar("")
 	return
 }
 
@@ -154,18 +157,15 @@ func SelectByIds(ids []int64) (users []*pb.UserItem, err error) {
 	}
 
 	for _, item := range user {
-		users = append(users, &pb.UserItem{
+		u := pb.UserItem{
 			UserId:   item.UserId,
 			UserName: item.UserName,
 			Phone:    item.Phone,
 			Email:    item.Email,
-			Avatar:   item.Avatar,
-		})
+			Avatar:   item.SetAvatar(""),
+		}
+
+		users = append(users, &u)
 	}
 	return
-}
-
-// 获取默认头像
-func getDefaultAvatar() string {
-	return "https://cdn.jsdelivr.net/gh/jun3372/picture/20200515201937.png"
 }

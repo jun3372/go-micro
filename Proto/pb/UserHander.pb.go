@@ -30,8 +30,10 @@ type UserLoginRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Email    string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	// @inject_tag: json:"email" form:"email"
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email" form:"email"`
+	// @inject_tag: json:"password" form:"password"
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password" form:"password"`
 }
 
 func (x *UserLoginRequest) Reset() {
@@ -197,16 +199,16 @@ type UserRegisterRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"email"
-	Email string `protobuf:"bytes,1,opt,name=Email,proto3" json:"email"`
-	// @inject_tag: json:"user_name"
-	UserName string `protobuf:"bytes,2,opt,name=UserName,proto3" json:"user_name"`
-	// @inject_tag: json:"password"
-	Password string `protobuf:"bytes,3,opt,name=Password,proto3" json:"password"`
-	// @inject_tag: json:"phone"
-	Phone string `protobuf:"bytes,4,opt,name=Phone,proto3" json:"phone"`
-	// @inject_tag: json:"avatar"
-	Avatar string `protobuf:"bytes,5,opt,name=Avatar,proto3" json:"avatar"`
+	// @inject_tag: json:"email" form:"email"
+	Email string `protobuf:"bytes,1,opt,name=Email,proto3" json:"email" form:"email"`
+	// @inject_tag: json:"user_name" form:"user_name"
+	UserName string `protobuf:"bytes,2,opt,name=UserName,proto3" json:"user_name" form:"user_name"`
+	// @inject_tag: json:"password" form:"password"
+	Password string `protobuf:"bytes,3,opt,name=Password,proto3" json:"password" form:"password"`
+	// @inject_tag: json:"phone" form:"phone"
+	Phone string `protobuf:"bytes,4,opt,name=Phone,proto3" json:"phone" form:"phone"`
+	// @inject_tag: json:"avatar" form:"avatar"
+	Avatar string `protobuf:"bytes,5,opt,name=Avatar,proto3" json:"avatar" form:"avatar"`
 }
 
 func (x *UserRegisterRequest) Reset() {
@@ -336,20 +338,20 @@ type UserUpdateProfileRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"user_id"
-	UserId int64 `protobuf:"varint,1,opt,name=UserId,proto3" json:"user_id"`
-	// @inject_tag: json:"email"
-	Email string `protobuf:"bytes,2,opt,name=Email,proto3" json:"email"`
-	// @inject_tag: json:"user_name"
-	UserName string `protobuf:"bytes,3,opt,name=UserName,proto3" json:"user_name"`
-	// @inject_tag: json:"password"
-	Password string `protobuf:"bytes,4,opt,name=Password,proto3" json:"password"`
-	// @inject_tag: json:"phone"
-	Phone string `protobuf:"bytes,5,opt,name=Phone,proto3" json:"phone"`
-	// @inject_tag: json:"avatar"
-	Avatar string `protobuf:"bytes,6,opt,name=Avatar,proto3" json:"avatar"`
-	// @inject_tag: json:"token"
-	Token string `protobuf:"bytes,7,opt,name=Token,proto3" json:"token"`
+	// @inject_tag: json:"user_id" form:"user_id"
+	UserId int64 `protobuf:"varint,1,opt,name=UserId,proto3" json:"user_id" form:"user_id"`
+	// @inject_tag: json:"email" form:"email"
+	Email string `protobuf:"bytes,2,opt,name=Email,proto3" json:"email" form:"email"`
+	// @inject_tag: json:"user_name" form:"user_name"
+	UserName string `protobuf:"bytes,3,opt,name=UserName,proto3" json:"user_name" form:"user_name"`
+	// @inject_tag: json:"password" form:"password"
+	Password string `protobuf:"bytes,4,opt,name=Password,proto3" json:"password" form:"password"`
+	// @inject_tag: json:"phone" form:"phone"
+	Phone string `protobuf:"bytes,5,opt,name=Phone,proto3" json:"phone" form:"phone"`
+	// @inject_tag: json:"avatar" form:"avatar"
+	Avatar string `protobuf:"bytes,6,opt,name=Avatar,proto3" json:"avatar" form:"avatar"`
+	// @inject_tag: json:"token" form:"token"
+	Token string `protobuf:"bytes,7,opt,name=Token,proto3" json:"token" form:"token"`
 }
 
 func (x *UserUpdateProfileRequest) Reset() {
@@ -495,14 +497,14 @@ type UserFindByWhereRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"user_id"
-	UserId int64 `protobuf:"varint,1,opt,name=UserId,proto3" json:"user_id"`
-	// @inject_tag: json:"email"
-	Email string `protobuf:"bytes,2,opt,name=Email,proto3" json:"email"`
-	// @inject_tag: json:"phone"
-	Phone string `protobuf:"bytes,3,opt,name=Phone,proto3" json:"phone"`
-	// @inject_tag: json:"token"
-	Token string `protobuf:"bytes,4,opt,name=Token,proto3" json:"token"`
+	// @inject_tag: json:"user_id" form:"user_id"
+	UserId int64 `protobuf:"varint,1,opt,name=UserId,proto3" json:"user_id" form:"user_id"`
+	// @inject_tag: json:"email" form:"user_name"
+	Email string `protobuf:"bytes,2,opt,name=Email,proto3" json:"email" form:"user_name"`
+	// @inject_tag: json:"phone" form:"phone"
+	Phone string `protobuf:"bytes,3,opt,name=Phone,proto3" json:"phone" form:"phone"`
+	// @inject_tag: json:"token" form:"token"
+	Token string `protobuf:"bytes,4,opt,name=Token,proto3" json:"token" form:"token"`
 }
 
 func (x *UserFindByWhereRequest) Reset() {
@@ -633,16 +635,16 @@ type UserItem struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"user_id"
-	UserId int64 `protobuf:"varint,1,opt,name=UserId,proto3" json:"user_id"`
-	// @inject_tag: json:"user_name"
-	UserName string `protobuf:"bytes,2,opt,name=UserName,proto3" json:"user_name"`
-	// @inject_tag: json:"email"
-	Email string `protobuf:"bytes,3,opt,name=Email,proto3" json:"email"`
-	// @inject_tag: json:"phone"
-	Phone string `protobuf:"bytes,4,opt,name=Phone,proto3" json:"phone"`
-	// @inject_tag: json:"avatar"
-	Avatar string `protobuf:"bytes,5,opt,name=Avatar,proto3" json:"avatar"`
+	// @inject_tag: json:"user_id" form:"user_id"
+	UserId int64 `protobuf:"varint,1,opt,name=UserId,proto3" json:"user_id" form:"user_id"`
+	// @inject_tag: json:"user_name" form:"user_name"
+	UserName string `protobuf:"bytes,2,opt,name=UserName,proto3" json:"user_name" form:"user_name"`
+	// @inject_tag: json:"email" form:"phone"
+	Email string `protobuf:"bytes,3,opt,name=Email,proto3" json:"email" form:"phone"`
+	// @inject_tag: json:"phone" form:"phone"
+	Phone string `protobuf:"bytes,4,opt,name=Phone,proto3" json:"phone" form:"phone"`
+	// @inject_tag: json:"avatar" form:"avatar"
+	Avatar string `protobuf:"bytes,5,opt,name=Avatar,proto3" json:"avatar" form:"avatar"`
 }
 
 func (x *UserItem) Reset() {
@@ -717,7 +719,8 @@ type UserFindByIdsRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Ids []int64 `protobuf:"varint,1,rep,packed,name=ids,proto3" json:"ids,omitempty"`
+	// @inject_tag: json:"ids" form:"ids"
+	Ids []int64 `protobuf:"varint,1,rep,packed,name=ids,proto3" json:"ids" form:"ids"`
 }
 
 func (x *UserFindByIdsRequest) Reset() {

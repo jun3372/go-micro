@@ -68,8 +68,10 @@ type OrderCreatedResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code int32  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Msg  string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	//@inject_tag: json:"code" form:"code"
+	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code" form:"code"`
+	//@inject_tag: json:"msg" form:"msg"
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg"`
 }
 
 func (x *OrderCreatedResponse) Reset() {
@@ -161,8 +163,10 @@ type OrderUpdatedResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code int32  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Msg  string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	//@inject_tag: json:"code" form:"code"
+	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code" form:"code"`
+	//@inject_tag: json:"msg" form:"msg"
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg"`
 }
 
 func (x *OrderUpdatedResponse) Reset() {
@@ -254,9 +258,12 @@ type OrderFindResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code int32      `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Msg  string     `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
-	Data *OrderItem `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
+	//@inject_tag: json:"code" form:"code"
+	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code" form:"code"`
+	//@inject_tag: json:"msg" form:"msg"
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg"`
+	//@inject_tag: json:"data"
+	Data *OrderItem `protobuf:"bytes,3,opt,name=data,proto3" json:"data"`
 }
 
 func (x *OrderFindResponse) Reset() {
@@ -393,9 +400,12 @@ type OrderSelectResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code int32        `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Msg  string       `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
-	Data []*OrderItem `protobuf:"bytes,3,rep,name=data,proto3" json:"data,omitempty"`
+	//@inject_tag: json:"code" form:"code"
+	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code" form:"code"`
+	//@inject_tag: json:"msg" form:"msg"
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg"`
+	//@inject_tag: json:"data"
+	Data []*OrderItem `protobuf:"bytes,3,rep,name=data,proto3" json:"data"`
 }
 
 func (x *OrderSelectResponse) Reset() {

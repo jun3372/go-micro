@@ -26,7 +26,10 @@ message OrderCreatedRequest {
 }
 
 message OrderCreatedResponse {
+    //@inject_tag: json:"code" form:"code"
     int32 code = 1;
+
+    //@inject_tag: json:"msg" form:"msg"
     string msg = 2;
 }
 
@@ -35,7 +38,10 @@ message OrderUpdatedRequest {
 }
 
 message OrderUpdatedResponse {
+    //@inject_tag: json:"code" form:"code"
     int32 code = 1;
+
+    //@inject_tag: json:"msg" form:"msg"
     string msg = 2;
 }
 
@@ -44,8 +50,13 @@ message OrderFindRequest {
 }
 
 message OrderFindResponse {
+    //@inject_tag: json:"code" form:"code"
     int32 code = 1;
+
+    //@inject_tag: json:"msg" form:"msg"
     string msg = 2;
+
+    //@inject_tag: json:"data"
     OrderItem data = 3;
 }
 
@@ -58,7 +69,12 @@ message OrderItem {
 }
 
 message OrderSelectResponse {
+    //@inject_tag: json:"code" form:"code"
     int32 code = 1;
+
+    //@inject_tag: json:"msg" form:"msg"
     string msg = 2;
+
+    //@inject_tag: json:"data"
     repeated OrderItem data = 3;
 }

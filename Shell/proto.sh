@@ -1,8 +1,11 @@
 #!/usr/local/bin bash
 
-dir=$(pwd)                      # 当前目录
-protoPath="$(pwd)/Proto/protos" # proto文件目录
-pbPath="$(pwd)/Proto/pb"        # pb文件目录
+# 进入根目录
+cd ../
+
+rootPath="$(pwd)"                    # 当前目录
+protoPath="${rootPath}/Proto/protos" # proto文件目录
+pbPath="${rootPath}/Proto/pb"        # pb文件目录
 
 # 进入proto文件目录
 # shellcheck disable=SC2164
@@ -25,4 +28,4 @@ done
 
 # 返回目录
 # shellcheck disable=SC2164
-cd "$dir"
+cd "${rootPath}"

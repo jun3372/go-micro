@@ -27,7 +27,10 @@ service UserService {
 }
 
 message UserLoginRequest {
+    // @inject_tag: json:"email" form:"email"
     string email = 1;
+
+    // @inject_tag: json:"password" form:"password"
     string password = 2;
 }
 
@@ -45,19 +48,19 @@ message UserLoginResponse {
 }
 
 message UserRegisterRequest {
-    // @inject_tag: json:"email"
+    // @inject_tag: json:"email" form:"email"
     string Email = 1;
 
-    // @inject_tag: json:"user_name"
+    // @inject_tag: json:"user_name" form:"user_name"
     string UserName = 2;
 
-    // @inject_tag: json:"password"
+    // @inject_tag: json:"password" form:"password"
     string Password = 3;
 
-    // @inject_tag: json:"phone"
+    // @inject_tag: json:"phone" form:"phone"
     string Phone = 4;
 
-    // @inject_tag: json:"avatar"
+    // @inject_tag: json:"avatar" form:"avatar"
     string Avatar = 5;
 }
 
@@ -67,25 +70,25 @@ message UserRegisterResponse {
 }
 
 message UserUpdateProfileRequest {
-    // @inject_tag: json:"user_id"
+    // @inject_tag: json:"user_id" form:"user_id"
     int64 UserId = 1;
 
-    // @inject_tag: json:"email"
+    // @inject_tag: json:"email" form:"email"
     string Email = 2;
 
-    // @inject_tag: json:"user_name"
+    // @inject_tag: json:"user_name" form:"user_name"
     string UserName = 3;
 
-    // @inject_tag: json:"password"
+    // @inject_tag: json:"password" form:"password"
     string Password = 4;
 
-    // @inject_tag: json:"phone"
+    // @inject_tag: json:"phone" form:"phone"
     string Phone = 5;
 
-    // @inject_tag: json:"avatar"
+    // @inject_tag: json:"avatar" form:"avatar"
     string Avatar = 6;
 
-    // @inject_tag: json:"token"
+    // @inject_tag: json:"token" form:"token"
     string Token = 7;
 }
 
@@ -98,16 +101,16 @@ message UserUpdateProfileResponse {
 }
 
 message UserFindByWhereRequest {
-    // @inject_tag: json:"user_id"
+    // @inject_tag: json:"user_id" form:"user_id"
     int64 UserId = 1;
 
-    // @inject_tag: json:"email"
+    // @inject_tag: json:"email" form:"user_name"
     string Email = 2;
 
-    // @inject_tag: json:"phone"
+    // @inject_tag: json:"phone" form:"phone"
     string Phone = 3;
 
-    // @inject_tag: json:"token"
+    // @inject_tag: json:"token" form:"token"
     string Token = 4;
 }
 
@@ -118,23 +121,24 @@ message UserFindByWhereResponse {
 }
 
 message UserItem {
-    // @inject_tag: json:"user_id"
+    // @inject_tag: json:"user_id" form:"user_id"
     int64 UserId = 1;
 
-    // @inject_tag: json:"user_name"
+    // @inject_tag: json:"user_name" form:"user_name"
     string UserName = 2;
 
-    // @inject_tag: json:"email"
+    // @inject_tag: json:"email" form:"phone"
     string Email = 3;
 
-    // @inject_tag: json:"phone"
+    // @inject_tag: json:"phone" form:"phone"
     string Phone = 4;
 
-    // @inject_tag: json:"avatar"
+    // @inject_tag: json:"avatar" form:"avatar"
     string Avatar = 5;
 }
 
 message UserFindByIdsRequest {
+    // @inject_tag: json:"ids" form:"ids"
     repeated int64 ids = 1;
 }
 

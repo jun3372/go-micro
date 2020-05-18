@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = ".;pb";
+
+service WalletService {
+    // 创建
+    rpc Created (WalletCreatedRequest) returns (WalletCreatedResponse) {
+    }
+
+    //增长
+    rpc Increase (WalletIncreaseRequest) returns (WalletIncreaseResponse) {
+    }
+
+    // 减少
+    rpc Decrease (WalletDecreaseRequest) returns (WalletDecreaseResponse) {
+    }
+}
+
+message WalletCreatedRequest {
+
+}
+
+message WalletCreatedResponse {
+
+}
+
+message WalletIncreaseRequest {
+}
+
+message WalletIncreaseResponse {
+}
+
+message WalletDecreaseRequest {
+
+}
+
+message WalletDecreaseResponse {
+
+}

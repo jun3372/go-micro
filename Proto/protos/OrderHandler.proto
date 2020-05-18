@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = ".;pb";
+
+service OrderService {
+    // 创建订单
+    rpc Created (OrderCreatedRequest) returns (OrderCreatedResponse) {
+    }
+
+    // 更新订单
+    rpc Updated (OrderUpdatedRequest) returns (OrderUpdatedResponse) {
+    }
+
+    // 查询
+    rpc Find (OrderFindRequest) returns (OrderFindResponse) {
+    }
+
+    rpc Select (OrderSelectRequest) returns (OrderSelectResponse) {
+    }
+}
+
+message OrderCreatedRequest {
+
+}
+
+message OrderCreatedResponse {
+    int32 code = 1;
+    string msg = 2;
+}
+
+message OrderUpdatedRequest {
+
+}
+
+message OrderUpdatedResponse {
+    int32 code = 1;
+    string msg = 2;
+}
+
+message OrderFindRequest {
+
+}
+
+message OrderFindResponse {
+    int32 code = 1;
+    string msg = 2;
+    OrderItem data = 3;
+}
+
+message OrderSelectRequest {
+
+}
+
+message OrderItem {
+
+}
+
+message OrderSelectResponse {
+    int32 code = 1;
+    string msg = 2;
+    repeated OrderItem data = 3;
+}

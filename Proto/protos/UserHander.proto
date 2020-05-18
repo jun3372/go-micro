@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = ".;pb";
+
+service UserService {
+    // 用户注册
+    rpc UserRegister (UserRegisterRequest) returns (UserRegisterResponse) {
+    }
+
+    // 查询用户
+    rpc UserFind (UserFindByWhereRequest) returns (UserFindByWhereResponse) {
+    }
+
+    // 更新Id查询用户列表
+    rpc UserFindIds (UserFindByIdsRequest) returns (UserFindByIdsResponse) {
+    }
+
+    // 用户登录
+    rpc UserLogin (UserLoginRequest) returns (UserLoginResponse) {
+    }
+
+    // 用户修改信息
+    rpc UserUpdateProfile (UserUpdateProfileRequest) returns (UserUpdateProfileResponse) {
+    }
+}
+
+message UserLoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message UserLoginResponseData {
+    // @inject_tag: json:"token,omitempty"
+    string Token = 1;
+}
+
+message UserLoginResponse {
+    int32 code = 1;
+    string msg = 2;
+
+    // @inject_tag: json:"data,omitempty"
+    UserLoginResponseData data = 3;
+}
+
+message UserRegisterRequest {
+    // @inject_tag: json:"email"
+    string Email = 1;
+
+    // @inject_tag: json:"user_name"
+    string UserName = 2;
+
+    // @inject_tag: json:"password"
+    string Password = 3;
+
+    // @inject_tag: json:"phone"
+    string Phone = 4;
+
+    // @inject_tag: json:"avatar"
+    string Avatar = 5;
+}
+
+message UserRegisterResponse {
+    int32 code = 1;
+    string msg = 2;
+}
+
+message UserUpdateProfileRequest {
+    // @inject_tag: json:"user_id"
+    int64 UserId = 1;
+
+    // @inject_tag: json:"email"
+    string Email = 2;
+
+    // @inject_tag: json:"user_name"
+    string UserName = 3;
+
+    // @inject_tag: json:"password"
+    string Password = 4;
+
+    // @inject_tag: json:"phone"
+    string Phone = 5;
+
+    // @inject_tag: json:"avatar"
+    string Avatar = 6;
+
+    // @inject_tag: json:"token"
+    string Token = 7;
+}
+
+message UserUpdateProfileResponse {
+    // @inject_tag: json:"code"
+    int32 code = 1;
+
+    // @inject_tag: json:"msg"
+    string msg = 2;
+}
+
+message UserFindByWhereRequest {
+    // @inject_tag: json:"user_id"
+    int64 UserId = 1;
+
+    // @inject_tag: json:"email"
+    string Email = 2;
+
+    // @inject_tag: json:"phone"
+    string Phone = 3;
+
+    // @inject_tag: json:"token"
+    string Token = 4;
+}
+
+message UserFindByWhereResponse {
+    int32 code = 1;
+    string msg = 2;
+    UserItem data = 3;
+}
+
+message UserItem {
+    // @inject_tag: json:"user_id"
+    int64 UserId = 1;
+
+    // @inject_tag: json:"user_name"
+    string UserName = 2;
+
+    // @inject_tag: json:"email"
+    string Email = 3;
+
+    // @inject_tag: json:"phone"
+    string Phone = 4;
+
+    // @inject_tag: json:"avatar"
+    string Avatar = 5;
+}
+
+message UserFindByIdsRequest {
+    repeated int64 ids = 1;
+}
+
+message UserFindByIdsResponse {
+    // @inject_tag: json:"code"
+    int32 code = 1;
+
+    // @inject_tag: json:"msg"
+    string msg = 2;
+
+    // @inject_tag: json:"data"
+    repeated UserItem data = 3;
+}

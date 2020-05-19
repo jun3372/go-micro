@@ -110,6 +110,6 @@ func main() {
 
 	// 启动service
 	if err := service.Run(); err != nil {
-		log.Error("user-srv服务启动失败 ...")
+		log.Error("wallet-srv服务启动失败 ...")
 	}
 }

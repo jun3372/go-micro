@@ -1,0 +1,10 @@
+# 应用系统设置
+[consul]
+    host = "127.0.0.1"
+    port = "8500"
+
+# 服务配置
+[server]
+    name = "micro.demo.user"
+    version = "v1"
+    port = 801

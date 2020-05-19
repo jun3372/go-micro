@@ -1,0 +1,10 @@
+# 应用系统设置
+[setting]
+    logpath = "/tmp/log/flash"
+
+[http]
+    # 后台配置
+    [http.admin]
+        port = 8002
+
+demo="123123"

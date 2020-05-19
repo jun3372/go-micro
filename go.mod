@@ -16,5 +16,7 @@ require (
 	github.com/micro/go-plugins v1.5.1
 	github.com/nsqio/go-nsq v1.0.8
 	github.com/sirupsen/logrus v1.4.2
+	github.com/spf13/cast v1.3.0
+	github.com/spf13/viper v1.7.0
 	google.golang.org/protobuf v1.22.0
 )

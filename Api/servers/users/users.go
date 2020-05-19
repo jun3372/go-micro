@@ -76,5 +76,5 @@ func SelectByIds(id []int64) (res *pb.UserFindByIdsResponse, err error) {
 		}
 	)
 
-	return userClient.UserFindIds(context.Background(), &req)
+	return userClient.UserFindIds(context.TODO(), &req)
 }

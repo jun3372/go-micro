@@ -6,6 +6,7 @@ import (
 
 	"github.com/spf13/viper"
 
+	"micro.demo/Library/log"
 	"micro.demo/Library/tool"
 )
 
@@ -29,7 +30,10 @@ func Cfg() *Config {
 		if tool.IsEmpty(file) {
 			file = "."
 		}
-		_ = cfg.LoadFile(file)
+
+		if err := cfg.LoadFile(file); err != nil {
+			log.Fatal("加载配置文件错误: err=", err)
+		}
 	})
 
 	return cfg

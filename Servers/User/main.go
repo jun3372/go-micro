@@ -35,9 +35,9 @@ func InitConsul() {
 	register = consul.NewRegistry(
 		registry.Addrs(fmt.Sprintf("%s:%v",
 			cfg.GetString("consul.host", os.Getenv("CONSUL_HOST")),
-			cfg.GetString("consul.port", os.Getenv("CONSUL_PORT")),
+			cfg.GetInt64("consul.port", os.Getenv("CONSUL_PORT")),
 		)),
-		registry.Timeout(5*time.Second),
+		registry.Timeout(cfg.GetDuration("consul.timeout", 5)*time.Second),
 	)
 }
 
